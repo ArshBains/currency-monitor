@@ -1,0 +1,86 @@
+<%- include('../partials/header')-%>
+    <title>Home
+    </title>
+    <link rel="stylesheet" href="/css/homepage.css">
+    </head>
+
+    <body>
+        <!-- add navbar -->
+        <%- include('../partials/navbar')-%>
+
+            <!-- add progress bar and refresh when width>100% -->
+            <div class="progress refresh-slider">
+                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+            <div id="for-iframe"></div>
+            <button id="refresh-button" type="button" class="btn btn-success btn-lg"><i
+                    class="fas fa-sync"></i></button>
+            <button id="download-button" type="button" class="btn btn-info btn-lg"><i
+                    class="fas fa-download"></i></button>
+            <!-- saerchbar -->
+            <div class="search-input">
+                <input type="text" placeholder="Search">
+            </div>
+
+            <!-- monitoring table -->
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table crypto-table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Symbol</th>
+                                <th scope="col">Market Cap (USD)</th>
+                                <th scope="col">Price (USD)</th>
+                                <th scope="col">Supply</th>
+                                <th scope="col">Vol(24h)USD</th>
+                                <th scope="col">%(24h)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% cryptos.forEach(function(crypto){ %>
+                                <tr>
+                                    <td>
+                                        <%= crypto.rank %>
+                                    </td>
+                                    <td><span class="btn-link" onclick="location.href ='/info/<%= crypto.id %>'">
+                                            <%= crypto.name %>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <%= crypto.symbol %>
+                                    </td>
+                                    <td>
+                                        <%= parseFloat(crypto.marketCapUsd).toFixed(2) %>
+                                    </td>
+                                    <td class="text-warning">
+                                        <%= parseFloat(crypto.priceUsd).toFixed(4) %>
+                                    </td>
+                                    <td class="text-warning">
+                                        <%= parseFloat(crypto.supply).toFixed(2) %>
+                                    </td>
+                                    <td class="text-warning">
+                                        <%= parseFloat(crypto.volumeUsd24Hr).toFixed(2) %>
+                                    </td>
+                                    <% if(crypto.changePercent24Hr[0] !=='-' ){ %>
+                                        <td class="text-success">%<%= crypto.changePercent24Hr.slice(0,4) %> <i
+                                                    class="fa fa-arrow-up"></i></td>
+                                        <% } else {%>
+                                            <td class="text-danger">%<%= crypto.changePercent24Hr.slice(0,5) %> <i
+                                                        class="fa fa-arrow-down"></i></td>
+                                            <% } %>
+
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+
+            <script src="/js/homepage.js"></script>
+
+            <%- include('../partials/footer')-%>

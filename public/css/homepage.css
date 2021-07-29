@@ -1,0 +1,60 @@
+.crypto-table {
+  border-collapse: separate;
+  /* border-spacing: 0 1em; */
+  /* padding: 10px; */
+}
+.crypto-table thead th {
+  color: rgba(0, 0, 0, 0.3);
+}
+.crypto-table tbody tr {
+  background: #fff;
+  -webkit-box-shadow: 0 1px 15px 1px rgba(62, 57, 107, 0.07);
+  box-shadow: 0 1px 15px 1px rgba(62, 57, 107, 0.07);
+  height: 50px;
+}
+.crypto-table tbody tr td > * {
+  vertical-align: middle;
+}
+.crypto-table tbody tr td:first-child {
+  border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+}
+.crypto-table tbody tr td:last-child {
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+}
+.refresh-slider {
+  /* margin: 0; */
+  height: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100000;
+}
+.refresh-slider .progress-bar {
+  width: 0%;
+}
+.search-input {
+  text-align: center;
+}
+.search-input input {
+  width: 80%;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+#refresh-button {
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 20px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+}
+#download-button {
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  left: 20px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+}

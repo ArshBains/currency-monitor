@@ -1,0 +1,56 @@
+<%- include('../partials/header')-%>
+    <title>Info
+    </title>
+    <link rel="stylesheet" href="/css/info.css">
+    </head>
+
+    <body>
+        <!-- add navbar -->
+        <%- include('../partials/navbar')-%>
+            <!-- add chartjs line chart -->
+            <div class="chartjs-wrapper"><canvas id="myChart"></canvas></div>
+            <div id="for-iframe"></div>
+            <!-- add markets table -->
+            <table class="table table-dark table-striped table-bordered text-center">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Exchange</th>
+                        <th scope="col">Price (USD)</th>
+                        <th scope="col">Base</th>
+                        <th scope="col">Quote</th>
+                        <th scope="col">Volume(24h)USD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% markets.forEach(function(market){ %>
+                        <tr>
+                            <td>
+                                <%= market.exchangeId %>
+                            </td>
+                            <td>
+                                <%= market.priceUsd %>
+                            </td>
+                            <td>
+                                <%= market.baseSymbol %>
+                            </td>
+                            <td>
+                                <%= market.quoteSymbol %>
+                            </td>
+                            <td>
+                                <%= market.volumeUsd24Hr %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+
+
+
+            <script>
+                let y_data = "<%=yaxis %>".split(",")
+                let x_data = "<%=xaxis %>".split(",")
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+            <script src="/js/info.js"></script>
+
+            <%- include('../partials/footer')-%>

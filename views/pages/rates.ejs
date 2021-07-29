@@ -1,0 +1,60 @@
+<%- include('../partials/header')-%>
+    <title>USD Rates
+    </title>
+    <link rel="stylesheet" href="/css/rates.css">
+    </head>
+
+    <body>
+        <!-- add navbar -->
+        <%- include('../partials/navbar')-%>
+
+            <!-- saerchbar -->
+            <div class="search-input">
+                <input type="text" placeholder="Search">
+            </div>
+            <div id="for-iframe"></div>
+            <button id="download-button" type="button" class="btn btn-info btn-lg"><i
+                    class="fas fa-download"></i></button>
+            <!-- monitoring table -->
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table crypto-table table-hover text-center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Currency</th>
+                                <th scope="col">Symbol</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Rate (USD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% currencies.forEach(function(currency){ %>
+                                <tr>
+                                    <td class="text-primary">
+                                        <span>
+                                            <%= currency.symbol %>
+                                        </span>
+
+                                    </td>
+                                    <td>
+                                        <%= currency.currencySymbol %>
+
+                                    </td>
+                                    <td class="text-capitalize text-info">
+                                        <%= currency.type %>
+                                    </td>
+                                    <td class="text-success">
+                                        <%= currency.rateUsd %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+
+            <script src="/js/rates.js"></script>
+
+            <%- include('../partials/footer')-%>
